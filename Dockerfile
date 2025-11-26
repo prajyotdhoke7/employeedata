@@ -1,16 +1,16 @@
-# build stage
+# ---------- build stage ----------
 FROM maven:3.9-eclipse-temurin-17-alpine AS build
 
 WORKDIR /app
 
-# Copy pom and sources
+# copy pom and sources
 COPY pom.xml .
 COPY src ./src
 
-# Build the jar
+# build the jar
 RUN mvn -B -e clean package -DskipTests
 
-# runtime stage
+# ---------- runtime stage ----------
 FROM eclipse-temurin:17-jdk-alpine
 
 WORKDIR /app
