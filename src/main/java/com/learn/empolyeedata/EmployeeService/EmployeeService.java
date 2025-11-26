@@ -33,4 +33,12 @@ public class EmployeeService {
                     emp.setEmpSalary(updateEmp.getEmpSalary());
                 });
     }
+
+    public void removeEmployee(int empId) {
+        employeeList.stream()
+                .filter(p -> p.getEmpId() == empId)
+                .findFirst()
+                .ifPresent(emp -> removeEmployee(emp.getEmpId()));
+
+    }
 }

@@ -33,4 +33,11 @@ public class EmpolyeeController {
         return result;
     }
 
+    @DeleteMapping("/deleteEmployee/{empId}")
+    public Map<String,String> removeEmployee(@PathVariable int empId){
+        ser.removeEmployee(empId);
+        Map<String, String> result = Map.of("Status", "Success");
+        return result;
+    }
+
 }
