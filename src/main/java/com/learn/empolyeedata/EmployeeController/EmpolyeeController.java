@@ -35,9 +35,14 @@ public class EmpolyeeController {
 
     @DeleteMapping("/deleteEmployee/{empId}")
     public Map<String,String> removeEmployee(@PathVariable int empId){
-        ser.removeEmployee(empId);
-        Map<String, String> result = Map.of("Status", "Success");
-        return result;
+        try {
+            ser.removeEmployee(empId);
+            return Map.of("Status", "Success");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Map.of("Status", "Failed", "Error", e.getMessage());
+        }
     }
+
 
 }
