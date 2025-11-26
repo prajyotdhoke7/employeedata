@@ -3,10 +3,7 @@ package com.learn.empolyeedata.EmployeeController;
 import com.learn.empolyeedata.EmployeeModel.EmployeeModel;
 import com.learn.empolyeedata.EmployeeService.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -27,6 +24,13 @@ public class EmpolyeeController {
         Map<String, String> result = Map.of("Status", "Success");
         return result;
 
+    }
+
+    @PutMapping("/editemployee")
+    public Map<String,String> updateEmployee(@RequestBody EmployeeModel updateEmp){
+        ser.updateEmployee(updateEmp);
+        Map<String, String> result = Map.of("Status", "Success");
+        return result;
     }
 
 }

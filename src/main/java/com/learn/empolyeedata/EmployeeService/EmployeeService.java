@@ -21,4 +21,16 @@ public class EmployeeService {
     public void addEmployee(EmployeeModel addEmployee) {
         employeeList.add(addEmployee);
     }
+
+    public void updateEmployee(EmployeeModel updateEmp) {
+        employeeList.stream()
+                .filter(emp -> emp.getEmpId() == updateEmp.getEmpId())
+                .findFirst()
+                .ifPresent(emp -> {
+                    emp.setEmpName(updateEmp.getEmpName());
+                    emp.setEmpAddress(updateEmp.getEmpAddress());
+                    emp.setEmpPhone(updateEmp.getEmpPhone());
+                    emp.setEmpSalary(updateEmp.getEmpSalary());
+                });
+    }
 }
