@@ -35,10 +35,7 @@ public class EmployeeService {
     }
 
     public void removeEmployee(int empId) {
-        employeeList.stream()
-                .filter(p -> p.getEmpId() == empId)
-                .findFirst()
-                .ifPresent(emp -> removeEmployee(empId));
-
+        employeeList.removeIf(emp -> emp.getEmpId() == empId);
     }
+
 }
