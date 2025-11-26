@@ -17,4 +17,8 @@ public class EmployeeService {
     public List<EmployeeModel> allEmployessData(){
         return  employeeList;
     }
+
+    public void addEmployee(EmployeeModel addEmployee) {
+        employeeList.add(addEmployee);
+    }
 }
