@@ -38,7 +38,7 @@ public class EmployeeService {
         employeeList.stream()
                 .filter(p -> p.getEmpId() == empId)
                 .findFirst()
-                .ifPresent(emp -> removeEmployee(emp.getEmpId()));
+                .ifPresent(emp -> removeEmployee(empId));
 
     }
 }
